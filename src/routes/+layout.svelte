@@ -7,11 +7,18 @@
   import { onMount } from 'svelte'
   import { setUserOnMount } from '$lib/stores/auth'
   import ChooseClassModal from '$lib/ui/modals/ChooseClassModal.svelte'
+  import { goto } from '$app/navigation'
 
   onMount(() => {
     setUserOnMount()
 
     page.subscribe(() => authGuard($useUser))
+
+    page.subscribe((page) => {
+      if (page.url.pathname === '/olimpiad') {
+        goto('/')
+      }
+    })
 
     page.subscribe(() => {
       if ($useUser?.class == 0) {

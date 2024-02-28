@@ -1,5 +1,7 @@
 module.exports = {
-  pluginSearchDirs: false, // you can omit this when using Prettier version 3
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+  },
   plugins: [require('prettier-plugin-svelte')],
   overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
   trailingComma: 'es5',

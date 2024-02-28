@@ -33,9 +33,10 @@
 
 <dialog id="class_modal" class="modal">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">Выберите ваш класс!</h3>
+    <label for="class" class="font-bold text-2xl">Выберите ваш класс!</label>
     <select
       class="select w-full select-bordered select-md"
+      id="class"
       name="class"
       on:change={handleChange}
       bind:value={$form.class}

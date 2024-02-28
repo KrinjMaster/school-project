@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
+  import { page } from '$app/stores'
   import { logout } from '$lib/stores/auth'
   import { useUser } from '$lib/stores/user'
 
@@ -14,7 +15,7 @@
 >
   <a class="btn btn-ghost text-xl" href="/">Олимпик</a>
   {#key $useUser}
-    {#if $useUser}
+    {#if $useUser && $page.url.pathname != '/user'}
       <div class="flex gap-1.5">
         <p class="font-bold text-xl">{$useUser.name}</p>
         <div class="dropdown dropdown-end">
@@ -30,7 +31,7 @@
             class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 font-semibold gap-1.5"
           >
             <li>
-              <a class="text-lg" href="/">Профиль</a>
+              <a class="text-lg" href={`/user`}>Профиль</a>
             </li>
             <button
               class="btn btn-error text-white text-lg h-12 mt-auto"

@@ -28,6 +28,15 @@ class AuthService {
     return result as RecordModel
   }
 
+  async updateUsersOlimpiads(
+    userId: string,
+    olimpiadId: string
+  ): Promise<RecordModel> {
+    return await pb.collection('users').update(userId, {
+      'completed_olimpiads+': olimpiadId,
+    })
+  }
+
   getCurrentUser(): AuthModel {
     return pb.authStore.model
   }

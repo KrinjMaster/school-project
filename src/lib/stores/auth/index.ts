@@ -27,6 +27,7 @@ export function setUserOnMount() {
       name: user.name,
       avatar: user.avatar,
       class: user.class,
+      completedOlimpiads: user.completed_olimpiads,
     })
   }
 }
@@ -37,6 +38,24 @@ export function updateUserClass(userClass: number) {
   if (user) {
     authService.updateClass(user.id, userClass)
   }
+}
+
+export function updateCompletedOlimpiads(id: string) {
+  useUser.update((state) => {
+    if (state) {
+      return {
+        id: state.id,
+        username: state.username,
+        email: state.email,
+        name: state.name,
+        avatar: state.avatar,
+        class: state.class,
+        completedOlimpiads: [...state.completedOlimpiads, id],
+      }
+    } else {
+      return null
+    }
+  })
 }
 
 export function logout() {

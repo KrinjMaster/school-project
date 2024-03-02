@@ -7,6 +7,7 @@ export default async function handleOAuth(provider: string) {
     const user = await oauthLogin(provider)
 
     setIsLoggedIn(true)
+
     setUser({
       id: user.record.id,
       username: user.record.username,
@@ -14,6 +15,9 @@ export default async function handleOAuth(provider: string) {
       name: user.record.name,
       avatar: user.record.avatar,
       class: user.record.class,
+      completedOlimpiads: user.record.completed_olimpiads
+        ? user.record.completed_olimpiads
+        : [],
     })
 
     goto('/')

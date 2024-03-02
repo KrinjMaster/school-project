@@ -13,3 +13,11 @@ export interface Olimpiad {
   }
   created: string
 }
+
+export interface CompletedOlimpiad {
+  id: string
+  userAnswers: string
+  rightAnswers: string
+  user: string
+  subject: string
+}

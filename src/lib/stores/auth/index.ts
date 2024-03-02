@@ -35,6 +35,22 @@ export function setUserOnMount() {
 export function updateUserClass(userClass: number) {
   const user = authService.getCurrentUser()
 
+  useUser.update((state) => {
+    if (state) {
+      return {
+        id: state.id,
+        username: state.username,
+        email: state.email,
+        name: state.name,
+        avatar: state.avatar,
+        class: userClass,
+        completedOlimpiads: state.completedOlimpiads,
+      }
+    } else {
+      return null
+    }
+  })
+
   if (user) {
     authService.updateClass(user.id, userClass)
   }

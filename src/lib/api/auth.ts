@@ -17,6 +17,14 @@ class AuthService {
       })
     }
 
+    pb.collection('users').subscribe(result.record.id, (e) => {
+      if (e.action == 'delete') {
+        pb.authStore.clear()
+      } else {
+        pb.authStore.save(pb.authStore.token, e.record)
+      }
+    })
+
     return result as RecordAuthResponse
   }
 

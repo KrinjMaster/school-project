@@ -8,8 +8,6 @@ export default async function handleOAuth(provider: string) {
 
     setIsLoggedIn(true)
 
-    console.log(user)
-
     setUser({
       id: user.record.id,
       username: user.record.username,

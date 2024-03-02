@@ -8,12 +8,14 @@ export default async function handleOAuth(provider: string) {
 
     setIsLoggedIn(true)
 
+    console.log(user)
+
     setUser({
       id: user.record.id,
       username: user.record.username,
       email: user.record.email,
-      name: user.record.name,
-      avatar: user.record.avatar,
+      name: user.meta?.name,
+      avatar: user.meta?.avatarUrl,
       class: user.record.class,
       completedOlimpiads: user.record.completed_olimpiads
         ? user.record.completed_olimpiads

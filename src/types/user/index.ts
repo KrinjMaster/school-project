@@ -6,4 +6,5 @@ export interface User {
   avatar: string
   class: number
   completedOlimpiads: string[]
+  score: number
 }

@@ -48,13 +48,22 @@ export const setSelectedOlimpiad = (olimpiad: Olimpiad) => {
   })
 }
 
-export const handleCompleteOlimpiad = (
+export const handleCompleteOlimpiad = async (
   userAnswers: string,
   rightAnswers: string,
   olimpiadId: string,
   userId: string,
   olimpiadSubject: string
 ) => {
+  const userAnswersArray = userAnswers.split(',')
+
+  const rightAnswersQuantity = rightAnswers
+    .split(',')
+    .filter((answer, i) => userAnswersArray[i] == answer).length
+
+  const userScore =
+    ((rightAnswersQuantity * 100) / rightAnswers.split(',').length) * 10
+
   try {
     olimpiadService.completeOlimpiad(
       userAnswers,
@@ -63,7 +72,7 @@ export const handleCompleteOlimpiad = (
       userId,
       olimpiadSubject
     )
-    authService.updateUsersOlimpiads(userId, olimpiadId)
+    authService.updateUsersOlimpiads(userId, olimpiadId, userScore)
     updateCompletedOlimpiads(olimpiadId)
     goto('/')
     endOlimpiad()

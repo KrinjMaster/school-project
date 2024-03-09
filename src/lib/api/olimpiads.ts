@@ -1,5 +1,6 @@
 import { pb } from '$lib/api/pb'
 import type { CompletedOlimpiad, Olimpiad } from '$src/types/olimpiads'
+import type { RecordModel } from 'pocketbase'
 
 class OlimpiadService {
   async getALlOlimpiads(): Promise<Olimpiad[]> {
@@ -20,8 +21,8 @@ class OlimpiadService {
     rightAnswers: string,
     userId: string,
     subject: string
-  ) {
-    await pb.collection('completed_olimpiads').create({
+  ): Promise<RecordModel> {
+    return await pb.collection('completed_olimpiads').create({
       olimpiad: olimpiadId,
       user_answers: userAnswers,
       right_answers: rightAnswers,

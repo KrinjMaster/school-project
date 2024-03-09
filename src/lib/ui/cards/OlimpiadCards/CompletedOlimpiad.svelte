@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Page from '$src/routes/+page.svelte'
   import type { CompletedOlimpiad } from '$src/types/olimpiads'
 
   export let olimpiad: CompletedOlimpiad
@@ -11,7 +10,7 @@
 
     return olimpiad.rightAnswers
       .split(',')
-      .filter((answer) => userAnswers.includes(answer)).length
+      .filter((answer, i) => userAnswers[i] == answer).length
   }
 
   const getAnswerColor = (percent: number) => {

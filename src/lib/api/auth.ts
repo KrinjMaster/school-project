@@ -1,5 +1,6 @@
 import type { AuthModel, RecordAuthResponse, RecordModel } from 'pocketbase'
 import { pb } from '$lib/api/pb'
+import type { User } from '$src/types/user'
 
 class AuthService {
   async loginOAuth(provider: string): Promise<RecordAuthResponse> {
@@ -14,6 +15,7 @@ class AuthService {
         name: meta.name,
         avatar: meta.avatarUrl,
         class: 0,
+        score: 0,
       })
     }
 
@@ -38,10 +40,18 @@ class AuthService {
 
   async updateUsersOlimpiads(
     userId: string,
-    olimpiadId: string
-  ): Promise<RecordModel> {
-    return await pb.collection('users').update(userId, {
+    olimpiadId: string,
+    score: number
+  ) {
+    await pb.collection('users').update(userId, {
       'completed_olimpiads+': olimpiadId,
+      'score+': score,
+    })
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return await pb.collection('users').getFullList({
+      sort: '-score',
     })
   }
 

@@ -32,7 +32,7 @@
         $useOlimpiad?.selectedOlimpiad.expand.questions
           .map((question) => question.answer)
           .join(','),
-        $useOlimpiad?.selectedOlimpiad.id,
+        $useOlimpiad.selectedOlimpiad.id,
         $useUser.id,
         olimpiadSubject
       )

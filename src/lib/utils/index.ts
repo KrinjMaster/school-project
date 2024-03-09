@@ -18,6 +18,7 @@ export default async function handleOAuth(provider: string) {
       completedOlimpiads: user.record.completed_olimpiads
         ? user.record.completed_olimpiads
         : [],
+      score: user.record.score,
     })
 
     goto('/')

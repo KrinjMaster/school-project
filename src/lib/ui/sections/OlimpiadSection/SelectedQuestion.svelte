@@ -31,7 +31,7 @@
         $useOlimpiad.selectedOlimpiadAnswers.toLowerCase(),
         $useOlimpiad?.selectedOlimpiad.expand.questions
           .map((question) => question.answer)
-          .join(','),
+          .join('/'),
         $useOlimpiad.selectedOlimpiad.id,
         $useUser.id,
         olimpiadSubject
@@ -45,9 +45,9 @@
     {question.question}
   </h1>
   <p class="text-xl font-bold mt-auto">
-    {#if $useOlimpiad && $useOlimpiad.selectedOlimpiadAnswers.split(',')[questionIndex] != ''}
+    {#if $useOlimpiad && $useOlimpiad.selectedOlimpiadAnswers.split('/')[questionIndex] != ''}
       Вы выбрали ответ <span class="text-primary">
-        {$useOlimpiad.selectedOlimpiadAnswers.split(',')[questionIndex]}
+        {$useOlimpiad.selectedOlimpiadAnswers.split('/')[questionIndex]}
       </span>
     {/if}
   </p>

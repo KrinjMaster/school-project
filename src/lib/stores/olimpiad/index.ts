@@ -55,14 +55,14 @@ export const handleCompleteOlimpiad = async (
   userId: string,
   olimpiadSubject: string
 ) => {
-  const userAnswersArray = userAnswers.split(',')
+  const userAnswersArray = userAnswers.split('/')
 
   const rightAnswersQuantity = rightAnswers
-    .split(',')
+    .split('/')
     .filter((answer, i) => userAnswersArray[i] == answer).length
 
   const userScore =
-    ((rightAnswersQuantity * 100) / rightAnswers.split(',').length) * 10
+    ((rightAnswersQuantity * 100) / rightAnswers.split('/').length) * 10
 
   try {
     olimpiadService.completeOlimpiad(
@@ -112,7 +112,7 @@ export const startOlimpiad = () => {
       olimpiads: state ? state.olimpiads : [],
       subjects: state ? state.subjects : [],
       selectedOlimpiad: state ? state.selectedOlimpiad : null,
-      selectedOlimpiadAnswers: answers.join(','),
+      selectedOlimpiadAnswers: answers.join('/'),
       isStarted: true,
       completedOlimpiads: [],
     }
@@ -135,7 +135,7 @@ export const endOlimpiad = () => {
 export const updateAnswers = (answer: string, index: number) => {
   useOlimpiad.update((state) => {
     if (state?.selectedOlimpiadAnswers) {
-      const answers: string[] = state?.selectedOlimpiadAnswers.split(',')
+      const answers: string[] = state?.selectedOlimpiadAnswers.split('/')
 
       if (answers.length > index) {
         answers[index] = answer
@@ -145,7 +145,7 @@ export const updateAnswers = (answer: string, index: number) => {
         olimpiads: state ? state.olimpiads : [],
         subjects: state ? state.subjects : [],
         selectedOlimpiad: state ? state.selectedOlimpiad : null,
-        selectedOlimpiadAnswers: answers.join(','),
+        selectedOlimpiadAnswers: answers.join('/'),
         isStarted: true,
         completedOlimpiads: [],
       }

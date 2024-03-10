@@ -33,6 +33,17 @@
             <h2 class="card-title text-3xl uppercase font-bold">
               {olimpiad.subject}
             </h2>
+            <div class="flex text-lg font-normal gap-3.5">
+              <p>для</p>
+              <div class="flex gap-1.5">
+                {#each olimpiad.grades.split(',') as grade}
+                  <h2 class="">
+                    {grade}
+                  </h2>
+                {/each}
+              </div>
+              <p>классов</p>
+            </div>
             <a
               href={`/olimpiad/${olimpiad.id}`}
               class="btn btn-outline btn-primary btn-wide ml-auto"

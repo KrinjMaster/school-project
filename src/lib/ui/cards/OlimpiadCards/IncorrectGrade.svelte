@@ -1,15 +1,16 @@
 <div class="card w-96 h-fit bg-base-100 shadow-xl my-auto">
   <figure class="px-10 pt-10">
     <img
-      src="https://i.imgflip.com/64sz4u.png?a474826"
-      alt="Мем"
-      class="rounded-xl"
+      src="https://i.imgflip.com/8b0trb.mp4"
+      alt="Танцующий диназавр"
+      class="rounded-xl w-64"
     />
   </figure>
   <div class="card-body items-center text-center">
     <h2 class="card-title">Ууупс!</h2>
     <p>
-      Вы уже прошли эту олимпиаду, нельзя пройти одну и ту же олимпиаду дважды!
+      Вы не можете пройти эту олимпиаду, так как вы не в том классе, чтобы её
+      пройти!
     </p>
     <div class="card-actions">
       <a class="btn btn-primary" href="/">На главную</a>

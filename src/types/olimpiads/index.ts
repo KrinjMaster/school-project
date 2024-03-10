@@ -8,6 +8,7 @@ export interface Question {
 export interface Olimpiad {
   id: string
   subject: string
+  grades: string
   expand: {
     questions: Question[]
   }

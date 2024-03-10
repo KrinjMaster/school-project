@@ -10,7 +10,7 @@
   <figure class="px-10 pt-10">
     <img
       src="https://cdn.frankerfacez.com/emoticon/464328/4"
-      alt="Shoes"
+      alt="Мем"
       class="rounded-xl"
     />
   </figure>

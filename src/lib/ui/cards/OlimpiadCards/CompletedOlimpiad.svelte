@@ -5,11 +5,11 @@
 
   const rightAnswersQuantity = () => {
     const userAnswers = olimpiad.userAnswers
-      .split(',')
+      .split('/')
       .filter((answer) => answer !== '')
 
     return olimpiad.rightAnswers
-      .split(',')
+      .split('/')
       .filter((answer, i) => userAnswers[i] == answer).length
   }
 
@@ -33,11 +33,11 @@
     </h2>
     <p
       class={`text-lg ${getAnswerColor(
-        (rightAnswersQuantity() * 100) / olimpiad.rightAnswers.split(',').length
+        (rightAnswersQuantity() * 100) / olimpiad.rightAnswers.split('/').length
       )}`}
     >
       выполнено правильно {(rightAnswersQuantity() * 100) /
-        olimpiad.rightAnswers.split(',').length}%
+        olimpiad.rightAnswers.split('/').length}%
     </p>
   </div>
 </div>

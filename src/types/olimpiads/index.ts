@@ -21,4 +21,5 @@ export interface CompletedOlimpiad {
   rightAnswers: string
   user: string
   subject: string
+  completed: string
 }

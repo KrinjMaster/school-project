@@ -21,10 +21,15 @@
 <section class="w-screen h-screen flex flex-col pt-16 px-2.5 gap-5">
   <div class="flex gap-2.5 items-center">
     {#if $useUser}
-      <img src={$useUser?.avatar} alt="user avatar" class="w-24 rounded-full" />
-      <h1 class="text-4xl font-bold">
-        {$useUser?.name}
-      </h1>
+      <img src={$useUser.avatar} alt="user avatar" class="w-24 rounded-full" />
+      <div>
+        <h1 class="text-4xl font-bold">
+          {$useUser.name}
+        </h1>
+        <h1 class="text-xl font-bold text-gray-500">
+          Вы в {$useUser.class} классе
+        </h1>
+      </div>
       <button
         class="btn btn-error btn-wide text-white text-lg"
         on:click={handleLogout}

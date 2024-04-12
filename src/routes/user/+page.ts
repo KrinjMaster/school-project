@@ -15,6 +15,7 @@ export async function load() {
           rightAnswers: olimpiad.right_answers,
           userAnswers: olimpiad.user_answers,
           user: olimpiad.user,
+          completed: olimpiad.created,
         }
       }),
   }

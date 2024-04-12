@@ -33,16 +33,13 @@
             <h2 class="card-title text-3xl uppercase font-bold">
               {olimpiad.subject}
             </h2>
-            <div class="flex text-lg font-normal gap-3.5">
-              <p>для</p>
-              <div class="flex gap-1.5">
-                {#each olimpiad.grades.split(',') as grade}
-                  <h2 class="">
-                    {grade}
-                  </h2>
-                {/each}
-              </div>
-              <p>классов</p>
+            <div
+              class="flex text-lg gap-1.5 badge badge-secondary font-bold h-8"
+            >
+              <p>
+                {`${olimpiad.grades.split(',')[0]}-${olimpiad.grades.split(',').slice(-1)}`}
+              </p>
+              классы
             </div>
             <a
               href={`/olimpiad/${olimpiad.id}`}

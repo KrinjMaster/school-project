@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { CompletedOlimpiad } from '$src/types/olimpiads'
 
+  import { onMount } from 'svelte'
   export let olimpiad: CompletedOlimpiad
 
   const rightAnswersQuantity = () => {
@@ -22,22 +23,36 @@
       return 'text-red-500'
     }
   }
+
+  const getDate = () => {
+    const date = new Date(olimpiad.completed)
+
+    return `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
+  }
+
+  getDate()
 </script>
 
 <div
   class="card card-bordered w-full bg-base-100 shadow-xl hover:bg-base-200 transition-colors duration-150 ease-out"
 >
-  <div class="card-body flex flex-row gap-5 items-center">
-    <h2 class="card-title text-3xl uppercase font-bold">
-      {olimpiad.subject}
-    </h2>
-    <p
-      class={`text-lg ${getAnswerColor(
-        (rightAnswersQuantity() * 100) / olimpiad.rightAnswers.split('/').length
-      )}`}
-    >
-      выполнено правильно {(rightAnswersQuantity() * 100) /
-        olimpiad.rightAnswers.split('/').length}%
+  <div class="card-body flex flex-row gap-12 items-center">
+    <div>
+      <h2 class="card-title text-3xl uppercase font-bold">
+        {olimpiad.subject}
+      </h2>
+      <p
+        class={`text-lg ${getAnswerColor(
+          (rightAnswersQuantity() * 100) /
+            olimpiad.rightAnswers.split('/').length
+        )}`}
+      >
+        выполнено правильно на {(rightAnswersQuantity() * 100) /
+          olimpiad.rightAnswers.split('/').length}%
+      </p>
+    </div>
+    <p class="w-12 font-bold">
+      {getDate()}
     </p>
   </div>
 </div>

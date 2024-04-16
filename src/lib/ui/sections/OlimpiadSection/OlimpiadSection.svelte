@@ -1,6 +1,8 @@
 <script lang="ts">
   import { useOlimpiad } from '$lib/stores/olimpiad'
+  import { useOlimpiadFilter } from '$src/lib/stores/filter'
   import type { Olimpiad } from '$src/types/olimpiads'
+  import OlimpiadFilterSection from '../OlimpiadFilterSection/OlimpiadFilterSection.svelte'
 
   const isNew = (olimpiad: Olimpiad) => {
     const createdDate = new Date(olimpiad.created)
@@ -17,38 +19,43 @@
 <div
   class="flex flex-col w-[80%] h-full justify-center items-center mx-auto gap-3.5 mt-16"
 >
+  <OlimpiadFilterSection />
   {#if $useOlimpiad}
     {#each $useOlimpiad.olimpiads as olimpiad}
-      <div class="indicator w-full">
-        {#if isNew(olimpiad)}
-          <span
-            class="indicator-item indicator-start badge badge-primary font-bold"
-            >новая</span
+      {#if olimpiad.subject.includes($useOlimpiadFilter.subject) && olimpiad.grades
+          .split(',')
+          .includes($useOlimpiadFilter.grade)}
+        <div class="indicator w-full">
+          {#if isNew(olimpiad)}
+            <span
+              class="indicator-item indicator-start badge badge-primary font-bold"
+              >новая</span
+            >
+          {/if}
+          <div
+            class="card card-bordered w-full bg-base-100 shadow-xl hover:bg-base-200 transition-colors duration-150 ease-out"
           >
-        {/if}
-        <div
-          class="card card-bordered w-full bg-base-100 shadow-xl hover:bg-base-200 transition-colors duration-150 ease-out"
-        >
-          <div class="card-body flex flex-row gap-5 items-center">
-            <h2 class="card-title text-3xl uppercase font-bold">
-              {olimpiad.subject}
-            </h2>
-            <div
-              class="flex text-lg gap-1.5 badge badge-secondary font-bold h-8"
-            >
-              <p>
-                {`${olimpiad.grades.split(',')[0]}-${olimpiad.grades.split(',').slice(-1)}`}
-              </p>
-              классы
+            <div class="card-body flex flex-row gap-5 items-center">
+              <h2 class="card-title text-3xl uppercase font-bold">
+                {olimpiad.subject}
+              </h2>
+              <div
+                class="flex text-lg gap-1.5 badge badge-secondary font-bold h-8"
+              >
+                <p>
+                  {`${olimpiad.grades.split(',')[1]}-${olimpiad.grades.split(',').slice(-1)}`}
+                </p>
+                классы
+              </div>
+              <a
+                href={`/olimpiad/${olimpiad.id}`}
+                class="btn btn-outline btn-primary btn-wide ml-auto"
+                >Участвовать!</a
+              >
             </div>
-            <a
-              href={`/olimpiad/${olimpiad.id}`}
-              class="btn btn-outline btn-primary btn-wide ml-auto"
-              >Участвовать!</a
-            >
           </div>
         </div>
-      </div>
+      {/if}
     {/each}
   {:else}
     <div class="skeleton w-full h-28 rounded-md shrink-0"></div>

@@ -52,7 +52,6 @@
       <option>9</option>
       <option>10</option>
       <option>11</option>
-      <option>11</option>
     </select>
     <div class="modal-action">
       <form method="dialog">

@@ -23,3 +23,8 @@ export interface CompletedOlimpiad {
   subject: string
   completed: string
 }
+
+export interface OlimpiadsFilter {
+  grade: string
+  subject: string
+}

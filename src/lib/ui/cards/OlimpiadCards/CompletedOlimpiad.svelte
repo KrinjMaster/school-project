@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { CompletedOlimpiad } from '$src/types/olimpiads'
 
-  import { onMount } from 'svelte'
   export let olimpiad: CompletedOlimpiad
 
   const rightAnswersQuantity = () => {
@@ -23,14 +22,6 @@
       return 'text-red-500'
     }
   }
-
-  const getDate = () => {
-    const date = new Date(olimpiad.completed)
-
-    return `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
-  }
-
-  getDate()
 </script>
 
 <div
@@ -51,8 +42,5 @@
           olimpiad.rightAnswers.split('/').length}%
       </p>
     </div>
-    <p class="w-12 font-bold">
-      {getDate()}
-    </p>
   </div>
 </div>

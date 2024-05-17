@@ -6,6 +6,7 @@ class OlimpiadService {
   async getALlOlimpiads(): Promise<Olimpiad[]> {
     return await pb.collection('olimpiads').getFullList({
       expand: 'questions',
+      sort: '-created',
     })
   }
 

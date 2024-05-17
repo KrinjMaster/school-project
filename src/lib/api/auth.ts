@@ -16,6 +16,7 @@ class AuthService {
         avatar: meta.avatarUrl,
         class: 0,
         score: 0,
+        role: 'user',
       })
     }
 

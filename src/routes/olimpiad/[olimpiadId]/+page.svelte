@@ -16,7 +16,17 @@
 
 <section class="flex flex-col h-screen w-screen p-2.5 items-center">
   {#if $useUser && $useOlimpiad}
-    {#if $useOlimpiad.selectedOlimpiad?.grades
+    {#if $useUser.role === 'admin'}
+      {#if !$useUser.completedOlimpiads.includes(data.olimpiadId)}
+        {#if $useOlimpiad.isStarted === false}
+          <StartOlimpiad />
+        {:else}
+          <SelectedOlimpiadSection />
+        {/if}
+      {:else}
+        <AlreadyCompleted />
+      {/if}
+    {:else if $useOlimpiad.selectedOlimpiad?.grades
       .split(',')
       .includes($useUser.class.toString())}
       {#if !$useUser.completedOlimpiads.includes(data.olimpiadId)}

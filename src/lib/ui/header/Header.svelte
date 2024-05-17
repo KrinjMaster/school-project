@@ -34,7 +34,6 @@
             />
             <ArrowDown style="font-size:1.5rem;" />
           </div>
-
           <ul
             tabindex="0"
             class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 font-semibold gap-1.5"

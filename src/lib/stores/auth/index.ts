@@ -29,6 +29,7 @@ export function setUserOnMount() {
       class: user.class,
       completedOlimpiads: user.completed_olimpiads,
       score: user.score,
+      role: user.role,
     })
   }
 }
@@ -47,6 +48,7 @@ export function updateUserClass(userClass: number) {
         class: userClass,
         completedOlimpiads: state.completedOlimpiads,
         score: state.score,
+        role: state.role,
       }
     } else {
       return null
@@ -70,6 +72,7 @@ export function updateCompletedOlimpiads(id: string) {
         class: state.class,
         completedOlimpiads: [...state.completedOlimpiads, id],
         score: state.score,
+        role: state.role,
       }
     } else {
       return null

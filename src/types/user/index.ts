@@ -1,3 +1,5 @@
+type Role = 'admin' | 'user'
+
 export interface User {
   id: string
   username: string
@@ -7,4 +9,5 @@ export interface User {
   class: number
   completedOlimpiads: string[]
   score: number
+  role: Role
 }

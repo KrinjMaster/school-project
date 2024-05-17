@@ -1,5 +1,5 @@
-import PocketBase from "pocketbase";
+import PocketBase from 'pocketbase'
 
-export const pb = new PocketBase(
-  import.meta.env.VITE_POCKET_BASE_URL as string,
-);
+export const pb = new PocketBase(import.meta.env.VITE_POCKET_BASE_URL as string)
+
+pb.autoCancellation(false)

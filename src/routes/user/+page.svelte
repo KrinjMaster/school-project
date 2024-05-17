@@ -26,9 +26,13 @@
         <h1 class="text-4xl font-bold">
           {$useUser.name}
         </h1>
-        <h1 class="text-xl font-bold text-gray-500">
-          Вы в {$useUser.class} классе
-        </h1>
+        {#if $useUser.role !== 'admin'}
+          <h1 class="text-xl font-bold text-gray-500">
+            Вы в {$useUser.class} классе
+          </h1>
+        {:else}
+          <h1 class="text-xl font-bold text-gray-500">Вы в администратор</h1>
+        {/if}
       </div>
       <button
         class="btn btn-error btn-wide text-white text-lg"

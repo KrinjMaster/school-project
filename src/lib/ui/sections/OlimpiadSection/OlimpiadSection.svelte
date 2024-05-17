@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="flex flex-col w-[80%] h-full justify-center items-center mx-auto gap-3.5 mt-16"
+  class="flex flex-col w-[80%] h-full justify-center items-center mx-auto gap-3.5 mt-16 p-3.5"
 >
   <OlimpiadFilterSection />
   {#if $useOlimpiad}

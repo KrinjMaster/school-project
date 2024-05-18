@@ -62,5 +62,7 @@
     <div class="skeleton w-full h-28 rounded-md shrink-0"></div>
     <div class="skeleton w-full h-28 rounded-md shrink-0"></div>
     <div class="skeleton w-full h-28 rounded-md shrink-0"></div>
+    <div class="skeleton w-full h-28 rounded-md shrink-0"></div>
+    <div class="skeleton w-full h-28 rounded-md shrink-0"></div>
   {/if}
 </div>

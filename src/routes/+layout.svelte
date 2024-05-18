@@ -32,6 +32,6 @@
   })
 </script>
 
-<ChooseClassModal />
 <Header />
+<ChooseClassModal />
 <slot />

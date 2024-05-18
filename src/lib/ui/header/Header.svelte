@@ -12,9 +12,7 @@
   }
 </script>
 
-<div
-  class="navbar bg-base-100 h-16 absolute top-0 bg-transparent justify-between"
->
+<div class="navbar bg-base-100 h-16 absolute top-0 justify-between z-10">
   <a class="btn btn-ghost text-xl" href="/"
     >Олимпик
     {$useOlimpiad?.selectedOlimpiad
